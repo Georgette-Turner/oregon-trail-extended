@@ -1,5 +1,3 @@
-
-
 class Traveler {
     constructor(travelerName) {
         this.name = travelerName
@@ -10,32 +8,49 @@ class Traveler {
         this.food = this.food + 2;
     }
     eat() {
-        
+
         if (this.food === 0) {
             return this.isHealthy = false;
-        }    else {
+        } else {
             this.food = this.food - 1
-         }
-    class Doctor extends Traveler {
-        constructor(travelerName, health){
-            this.health = health
-
-    heal(traveler){
+        }
+    }
+}
+class Doctor extends Traveler {
+    constructor(name) {
+        super()
+    }
+    heal(traveler) {
         if (this.isHealthy === false) {
             return this.isHealthy = true
         }
-            }
+    }
+}
+class Hunter extends Traveler {
+    constructor(name) {
+        super()
+    }
 
-// // join(traveler) {
-
-//     if (this.passengers.length < this.capacity) {
-//         this.passengers.push(traveler)
-             
-
+    hunt() {
+        this.food = this.food + 5;
+    }
+    
+    eat() {
+        if (this.food >= 2) {
+            return this.food + this.food - 2
         }
+        if (this.food < 2) {
+            return this.food + this.food - 1
+        }
+        else {
+            if(this.food < 2) {
+                return this.isHealthy = false
+            } 
+        }
+        giveFood(traveler, numOfFoodUnits)
     }
-         
-    }
+    // giveFood(traveler, numOfFoodUnits) -Transfers numOfFoodUnits from the hunter to the traveler
+    // if hunter doesn't have enogh then no transfer
 }
 
 let adam = new Traveler('Adam')
@@ -62,43 +77,31 @@ class Wagon {
 
         }
     }
- 
+
     shouldQuarantine() {
         console.log(this)
-        for (let counter = 0; counter < this.passengers.length; counter++){
+        for (let counter = 0; counter < this.passengers.length; counter++) {
             let currentPassenger = this.passengers[counter]
             if (currentPassenger.isHealthy === false) {
                 return true
             }
-     }return false
-     }
-    //  totalFood() {
-    //     let totalFood = 3
-    //     for (let i = 1; i === this.passengers.length; i++) {
-    //         let currentPassenger = this.passengersList[i]
-    //         totalFood = totalFood + currentPassenger.food
-    //     }
-    //     return totalFood
-    // }
-}
+        } return false
+    }
+
     totalFood() {
-        let totalFood = 3
+        let totalFood = 0
         for (let i = 1; i === this.passengers.length; i++) {
-             let currentPassenger = this.passengersList[i]
+            let currentPassenger = this.passengersList[i]
             totalFood = totalFood + currentPassenger.food
         }
-             return totalFood 
-         }
-        
+        return totalFood
+    }
+}
 
+// let myWagon = new Wagon(2)
 
+// console.log(myWagon);
 
-let myWagon = new Wagon(2)
-
-console.log(myWagon);
-
-
-let wagon = new Wagon(4)
 // Create a wagon that can hold 4 people
 let wagon = new Wagon(4);
 // Create five travelers
